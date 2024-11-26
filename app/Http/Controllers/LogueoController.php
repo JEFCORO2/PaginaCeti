@@ -20,6 +20,6 @@ class LogueoController extends Controller
             return back()->with('mensaje', 'Credenciales Incorrectas');
         }
 
-        return redirect()->route('inicio');
+        return redirect()->route('perfil.index', auth()->user()->username);
     }
 }
