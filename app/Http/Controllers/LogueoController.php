@@ -15,5 +15,11 @@ class LogueoController extends Controller
             'email' => 'required|email',
             'password' => 'required'
         ]);
+
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('mensaje', 'Credenciales Incorrectas');
+        }
+
+        return redirect()->route('inicio');
     }
 }
