@@ -25,6 +25,20 @@
                         class="flex items-center gap-2 bg-white border p-2 text-gray-700 text-sm font-bold cursor-pointer uppercase">
                         Crear
                     </a>
+
+                    <a href="{{route('perfil.index', auth()->user()->username)}}" class="font-bold text-gray-900 text-sm">
+                        Hola :
+                        <span class="font-normal">
+                            {{auth()->user()->username}}
+                        </span>
+                    </a>
+                    
+                    <form action="{{route('logout')}}" method="POST">
+                        @csrf
+                        <button type="submit" class="font-bold uppercase text-black text-sm">
+                            Cerrar Sesion
+                        </button>
+                    </form>
                 </nav>
             @endauth
 
