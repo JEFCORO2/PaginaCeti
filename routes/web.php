@@ -17,4 +17,9 @@ Route::post('/logout', [LogoutController::class , 'store'])->name('logout');
 Route::get('/register', [RegistroController::class , 'index'])->name('register');
 Route::post('/register', [RegistroController::class , 'store']);
 
+Route::get('/editar-perfil', [PerfilController::class, 'editar'])->name('perfil.editar');
+Route::post('/editar-perfil', [PerfilController::class, 'store'])->name('perfil.store');
+
 Route::get('/{user:username}', [PerfilController::class, 'index'])->name('perfil.index');
+
+
