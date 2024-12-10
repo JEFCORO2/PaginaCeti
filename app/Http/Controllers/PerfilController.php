@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class PerfilController extends Controller
 {
@@ -33,7 +34,7 @@ class PerfilController extends Controller
         $imagenAnterior = public_path('img/perfiles') . '/' . $usuario->imagen;
 
         if ($request->imagen) {
-            if(File::exists($imagenAnterior)){
+            if($usuario->imagen && File::exists($imagenAnterior)){
                 unlink($imagenAnterior);
             }
 
@@ -47,7 +48,7 @@ class PerfilController extends Controller
 
             $imagenServidor->resize(1000,1000);
 
-            $imagenesRuta = public_path('img/perfiles') . '.' . $nombreImagen;
+            $imagenesRuta = public_path('img/perfiles') . '/' . $nombreImagen;
 
             $imagenServidor->save($imagenesRuta);
         }

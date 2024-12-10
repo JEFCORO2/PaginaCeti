@@ -8,7 +8,7 @@
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
             <div class="w-8/12 lg:w-6/12 px-5">
-                <img src="{{asset('img/usuario.jpg')}}" alt="usuario">
+                <img src="{{$user->imagen ? asset('img/perfiles') . '/' . $user->imagen : asset('img/usuario.jpg')}}" alt="usuario">
             </div>
 
             <div class="md:w-8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10">
@@ -25,7 +25,26 @@
                         @endif
                     @endauth
                 </div>
+
+                <p class=" text-gray-800 text-sm mb-3 font-bold mt-5">
+                    0
+                    <span class=" font-normal">Seguidores</span>
+                </p>
+
+                <p class=" text-gray-800 text-sm mb-3 font-bold">
+                    0
+                    <span class=" font-normal">Siguiendo</span>
+                </p>
+
+                <p class=" text-gray-900 text-sm mb-3 font-bold">
+                    0
+                    <span class="font-normal">Publicaciones</span>
+                </p>
             </div>
         </div>
     </div>
+
+    <section class="container mx-auto mt-10">
+        <h2 class=" text-4xl text-center font-black my10">Mis Publicaciones</h2>
+    </section>
 @endsection
