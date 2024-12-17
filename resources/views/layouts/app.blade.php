@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PaginaCeti - @yield('titulo')</title>
     @vite('resources/css/app.css')
-    @vite('resources/js/app.css')
+    @vite('resources/js/app.js')
 </head>
 
 <body class=" bg-gray-200">
@@ -21,7 +21,7 @@
 
             @auth
                 <nav class="flex gap-2 items-center">
-                    <a href=""
+                    <a href="{{route('publi.crear')}}"
                         class="flex items-center gap-2 bg-white border p-2 text-gray-700 text-sm font-bold cursor-pointer uppercase">
                         Crear
                     </a>
