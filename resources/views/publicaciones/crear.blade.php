@@ -53,9 +53,9 @@
                 </div>
 
                 <div class="mb-5">
-                    <input 
-                        type="hidden"
+                    <input
                         name="imagen"
+                        type="hidden"
                         value="{{old('imagen')}}"
                     >
 
