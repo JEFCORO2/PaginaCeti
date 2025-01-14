@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -12,8 +13,10 @@ use Intervention\Image\Drivers\Gd\Driver;
 class PerfilController extends Controller
 {
     public function index(User $user){
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(20);
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 

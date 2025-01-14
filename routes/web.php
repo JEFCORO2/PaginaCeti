@@ -7,6 +7,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\LogueoController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegistroController;
+use App\Http\Controllers\SeguidorController;
 use App\Http\Controllers\PublicacionController;
 
 Route::get('/', InicioController::class)->name('inicio');
@@ -26,6 +27,9 @@ Route::get('/post/crear', [PublicacionController::class, 'crear'])->name('publi.
 Route::post('/post/crear', [PublicacionController::class, 'store'])->name('publi.store');
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('imagenes.store');
+
+Route::post('/{user:username}/seguidor', [SeguidorController::class, 'store'])->name('usuario.seguir');
+Route::delete('/{user:username}/dejar', [SeguidorController::class, 'destroy'])->name('usuario.dejar');
 
 Route::get('/{user:username}', [PerfilController::class, 'index'])->name('perfil.index');
 
